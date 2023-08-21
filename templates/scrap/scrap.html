@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrap Youtube</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .song-list-wrap {
+            display: flex;
+            justify-content: center;
+            gap: 0 15px;
+        }
+        .kw-wrap{
+            height: 100vh;
+            flex: 1 1 auto;
+        }
+        .title-str{
+            padding: 5px;
+            font-size: 14pt;
+            word-wrap: break-word;
+            font-weight: 300;
+            min-height: 70px;
+        }
+        .title-wrap{
+            box-shadow: 5px 8px 5px 2px lightgray;
+            margin: 3px 0 3px 0;
+        }
+        .kw-header{
+            font-size: 18pt;
+            font-weight: bold;
+            cursor: pointer;
+            background-color: bisque;
+        }
+        .time {
+            margin: 1.5rem 0 2rem 0;
+            text-align: center;
+            color: lightblue;
+        }
+        .time:hover {
+            color: lightskyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="time">조회한 시간 : {{now}}</div>
+        <div class="song-list-wrap">
+            <div class="kw-wrap">
+                <div class="kw-header" onclick="window.open('https://www.melon.com/chart/index.htm')">Melon</div>
+                {%if melon%}
+                    {%for title in melon%}
+                    <div class="title-wrap">
+                        <h3 class="title-str">{{forloop.counter}}. {{title}}</h3>
+                    </div>
+                    {%endfor%}
+                {%else%}
+                <h3 class="title-str">데이터가 없습니다.</h3>
+                {%endif%}
+            </div>
+            <div class="kw-wrap">
+                <div class="kw-header" onclick="window.open('https://music.bugs.co.kr/chart')">Bugs Music</div>
+                {%if bugs%}
+                    {%for title in bugs%}
+                    <div class="title-wrap">
+                        <h3 class="title-str">{{forloop.counter}}. {{title}}</h3>
+                    </div>
+                    {%endfor%}
+                {%else%}
+                <h3 class="title-str">데이터가 없습니다.</h3>
+                {%endif%}
+            </div>
+            <div class="kw-wrap">
+                <div class="kw-header" onclick="window.open('https://www.genie.co.kr/chart/top200?ditc=D&ymd=20230820&hh=19&rtm=Y&pg=1')">Genie</div>
+                {%if genie%}
+                    {%for title in genie%}
+                    <div class="title-wrap">
+                        <h3 class="title-str">{{forloop.counter}}. {{title}}</h3>
+                    </div>
+                    {%endfor%}
+                {%else%}
+                <h3 class="title-str">데이터가 없습니다.</h3>
+                {%endif%}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
