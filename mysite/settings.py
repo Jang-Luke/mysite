@@ -40,7 +40,7 @@ SECRET_KEY = get_secret("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["www.lukej-dev.r-e.kr"]
+ALLOWED_HOSTS = ["www.lukej-dev.r-e.kr","13.125.116.233"]
 
 
 # Application definition
@@ -93,7 +93,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'mysql.connector.django',
-        'NAME': 'luke_db',
+        'NAME': 'luke-db',
         'HOST': '127.0.0.1',
         'PORT': 3306,
         'USER': get_secret("USER"),
