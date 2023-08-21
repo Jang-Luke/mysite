@@ -93,7 +93,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'mysql.connector.django',
-        'NAME': 'luke-db',
+        'NAME': 'luke_db',
         'HOST': '127.0.0.1',
         'PORT': 3306,
         'USER': get_secret("USER"),
